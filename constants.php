@@ -1,7 +1,14 @@
 <?php
 
-	$url = "https://api-3t.sandbox.paypal.com/nvp";
-	$payPalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
+	$SANDBOX_ENVIRONMENT = true;
+
+	$url = "https://api-3t.paypal.com/nvp";
+	$payPalURL = 'https://www.paypal.com/cgi-bin/webscr';
+
+	if($SANDBOX_ENVIRONMENT){
+		$url = "https://api-3t.sandbox.paypal.com/nvp";
+		$payPalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
+	}
 
 	$user = "lucianonobremoreira_api1.gmail.com";
 	$password = "XD3EYFJAU52JTWTG";
