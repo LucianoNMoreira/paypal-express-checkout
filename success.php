@@ -7,7 +7,16 @@ $nvps = "&USER=$user" ."&PWD=$password" ."&SIGNATURE=$signature";
 $token = $_GET['token'];
 $PayerID = $_GET['PayerID'];
 
-$nvpset= $nvps."&localecode=BR"
+//Payment Details
+$nvpset= $nvps."&method=GetExpressCheckoutDetails"
+	."&version=76.0"	
+	."&token=$token";
+
+$response = RunAPICall($nvpset);
+$email = $response['EMAIL'];
+
+//Confirm payment
+$nvpset= $defaultNvps."&localecode=BR"
 	."&SOLUTIONTYPE=Sole"
 	."&version=76.0"	
 	."&method=DoExpressCheckoutPayment"
